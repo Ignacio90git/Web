@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MinsaitBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cat_Mercado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Ctrl_Cliente" Relationship="Self.FK__Ctrl_Clie__IdMer__1273C1CD" FromRole="Cat_Mercado" ToRole="Ctrl_Cliente" />
+  </EntityType>
+  <EntityType Name="Ctrl_Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rfc" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pais" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdMercado" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Cat_Mercado" Relationship="Self.FK__Ctrl_Clie__IdMer__1273C1CD" FromRole="Ctrl_Cliente" ToRole="Cat_Mercado" />
+    <NavigationProperty Name="Ctrl_Contacto" Relationship="Self.FK__Ctrl_Cont__IdCli__1DE57479" FromRole="Ctrl_Cliente" ToRole="Ctrl_Contacto" />
+    <NavigationProperty Name="Ctrl_Direccioncliente" Relationship="Self.FK__Ctrl_Dire__IdCli__15502E78" FromRole="Ctrl_Cliente" ToRole="Ctrl_Direccioncliente" />
+    <NavigationProperty Name="Ctrl_TelefonoCliente" Relationship="Self.FK__Ctrl_Tele__IdCli__182C9B23" FromRole="Ctrl_Cliente" ToRole="Ctrl_TelefonoCliente" />
+  </EntityType>
+  <EntityType Name="Ctrl_Contacto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCliente" Type="Int64" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Puesto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Ctrl_Cliente" Relationship="Self.FK__Ctrl_Cont__IdCli__1DE57479" FromRole="Ctrl_Contacto" ToRole="Ctrl_Cliente" />
+  </EntityType>
+  <EntityType Name="Ctrl_Direccioncliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCliente" Type="Int64" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodigoPostal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contacto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Ctrl_Cliente" Relationship="Self.FK__Ctrl_Dire__IdCli__15502E78" FromRole="Ctrl_Direccioncliente" ToRole="Ctrl_Cliente" />
+  </EntityType>
+  <EntityType Name="Ctrl_TelefonoCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCliente" Type="Int64" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Ctrl_Cliente" Relationship="Self.FK__Ctrl_Tele__IdCli__182C9B23" FromRole="Ctrl_TelefonoCliente" ToRole="Ctrl_Cliente" />
+  </EntityType>
+  <Association Name="FK__Ctrl_Clie__IdMer__1273C1CD">
+    <End Role="Cat_Mercado" Type="Self.Cat_Mercado" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ctrl_Cliente" Type="Self.Ctrl_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Mercado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ctrl_Cliente">
+        <PropertyRef Name="IdMercado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ctrl_Cont__IdCli__1DE57479">
+    <End Role="Ctrl_Cliente" Type="Self.Ctrl_Cliente" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ctrl_Contacto" Type="Self.Ctrl_Contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ctrl_Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ctrl_Contacto">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ctrl_Dire__IdCli__15502E78">
+    <End Role="Ctrl_Cliente" Type="Self.Ctrl_Cliente" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ctrl_Direccioncliente" Type="Self.Ctrl_Direccioncliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ctrl_Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ctrl_Direccioncliente">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ctrl_Tele__IdCli__182C9B23">
+    <End Role="Ctrl_Cliente" Type="Self.Ctrl_Cliente" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ctrl_TelefonoCliente" Type="Self.Ctrl_TelefonoCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ctrl_Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ctrl_TelefonoCliente">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MinsaitBDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cat_Mercado" EntityType="Self.Cat_Mercado" />
+    <EntitySet Name="Ctrl_Cliente" EntityType="Self.Ctrl_Cliente" />
+    <EntitySet Name="Ctrl_Contacto" EntityType="Self.Ctrl_Contacto" />
+    <EntitySet Name="Ctrl_Direccioncliente" EntityType="Self.Ctrl_Direccioncliente" />
+    <EntitySet Name="Ctrl_TelefonoCliente" EntityType="Self.Ctrl_TelefonoCliente" />
+    <AssociationSet Name="FK__Ctrl_Clie__IdMer__1273C1CD" Association="Self.FK__Ctrl_Clie__IdMer__1273C1CD">
+      <End Role="Cat_Mercado" EntitySet="Cat_Mercado" />
+      <End Role="Ctrl_Cliente" EntitySet="Ctrl_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ctrl_Cont__IdCli__1DE57479" Association="Self.FK__Ctrl_Cont__IdCli__1DE57479">
+      <End Role="Ctrl_Cliente" EntitySet="Ctrl_Cliente" />
+      <End Role="Ctrl_Contacto" EntitySet="Ctrl_Contacto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ctrl_Dire__IdCli__15502E78" Association="Self.FK__Ctrl_Dire__IdCli__15502E78">
+      <End Role="Ctrl_Cliente" EntitySet="Ctrl_Cliente" />
+      <End Role="Ctrl_Direccioncliente" EntitySet="Ctrl_Direccioncliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ctrl_Tele__IdCli__182C9B23" Association="Self.FK__Ctrl_Tele__IdCli__182C9B23">
+      <End Role="Ctrl_Cliente" EntitySet="Ctrl_Cliente" />
+      <End Role="Ctrl_TelefonoCliente" EntitySet="Ctrl_TelefonoCliente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

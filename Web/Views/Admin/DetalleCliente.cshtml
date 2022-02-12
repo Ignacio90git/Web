@@ -1,0 +1,222 @@
+﻿@model ModelDto.Ctrl_ClienteDto
+@{
+    ViewBag.Title = "Detalle cliente";
+}
+
+<script src="~/Scripts/Admin/DetalleCliente.js?v1.4"></script>
+<script type="text/javascript">
+    var CrearCliente = "@Url.Action("CrearCliente", "Admin")";
+    var CrearDireccion = "@Url.Action("CrearModificarDireccion", "Admin")";
+
+    var modelJson = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+</script>
+<style type="text/css">
+    #tableAddress > tbody > tr > td {
+        font-size: 13px;
+    }
+
+    #tablePhone > tbody > tr > td {
+        font-size: 13px;
+    }
+
+    #tableContac > tbody > tr > td {
+        font-size: 13px;
+    }
+</style>
+
+<h2>Detalle cliente</h2>
+
+<div class="content-heading">
+    <div>
+        Usa el siguiente formulario para registrar/editar los <b>clientes</b>.
+    </div>
+</div>
+
+<form id="formDetalleCliente">
+    @Html.HiddenFor(model => Model.Id)
+    <div class="card card-default" style="border-color: #aaaaaa; border-width: 1px; border-style: solid; margin: 1%; height: 170px;">
+        <div class="card-header d-flex align-items-center">
+            <div class="form-group">
+                <div class="card-body">
+                    <div class="form-group col-xl-4 col-sm-4">
+                        <label class="text-bold col-form-label">Nombre*</label>
+                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control ", @id = "Nombre", @maxlength = 60, @required = "required" })
+                    </div>
+                    <div class="form-group col-xl-4 col-sm-4">
+                        <label class="control-label col-form-label font-weight-bold">RFC*</label>
+                        @Html.TextBoxFor(model => model.Rfc, new { @class = "form-control", @id = "Rfc", @autocomplete = "off", @required = "required" })
+                    </div>
+                    <div class="form-group col-xl-4 col-sm-4">
+                        <label class="text-bold col-form-label">Pais*</label>
+                        @Html.TextBoxFor(model => model.Pais, new { @class = "form-control ", @id = "Pais", @required = "required" })
+                    </div>
+                    <div class="form-group col-xl-4 col-sm-4">
+                        <label class="text-bold col-form-label">Email*</label>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @id = "Email", @autocomplete = "off" })
+                    </div>
+                    <div class="form-group col-xl-4 col-sm-4">
+                        <label for="Mercado" class="control-label font-weight-bold">Mercado*</label>
+                        @Html.DropDownListFor(model => model.IdMercado, new SelectList(Model.MercadoList, "Id", "Nombre"), new { @class = "chosen-select form-control", @id = "IdMercado", @lang = "es" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row" style="text-align:right">
+                <div style="margin-right:20px">
+                    <button class="btn btn-success" id="btnSaveCliente" type="submit">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="formDetalleDireccion">
+    @Html.HiddenFor(model => Model.Id)
+    <div class="card card-default" style="border-color: #aaaaaa; border-width: 1px; border-style: solid; margin:1%">
+        <div class="card-header d-flex align-items-center">
+            <div class="form-group">
+                <div class="card-body">
+                    <div class="col-xl-8 col-sm-8 space">
+                        <label class="text-bold col-form-label">Direcciones cliente</label>
+                    </div>
+                    @Html.HiddenFor(model => model.Ctrl_Direccioncliente.Id)
+                    @Html.HiddenFor(model => model.Ctrl_Direccioncliente.IdCliente)
+                    <div class="col-md-6 col-sm-6">
+                        <label for="Calle">Direcci&oacute;n</label>
+                        @Html.TextBoxFor(model => model.Ctrl_Direccioncliente.Direccion, new { @class = "form-control", @id = "Direccion" })
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <label for="Calle">Nombre de direcci&oacute;n</label>
+                        @Html.TextBoxFor(model => model.Ctrl_Direccioncliente.CodigoPostal, new { @class = "form-control", @id = "CodigoPostal" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-xl-12 col-sm-12 ">
+                                    <table id="tableAddress" width="100%" class="table table-striped table-bordered table-hover compact">
+                                        <thead>
+                                            <tr>
+                                                <td>Direcci&oacute;n</td>
+                                                <td>Codigo postal</td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" style="text-align:right">
+                <div style="margin-right:20px">
+                    <button class="btn btn-success" id="btnSaveDirecciones" type="submit">Guardar direccion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<form id="formDetalleTelefono">
+    @Html.HiddenFor(model => Model.Id)
+    <div class="card card-default" style="border-color: #aaaaaa; border-width: 1px; border-style: solid; margin:1%">
+        <div class="card-header d-flex align-items-center">
+            <div class="form-group">
+                <div class="card-body">
+                    <div class="col-xl-8 col-sm-8 space">
+                        <label class="text-bold col-form-label">Telefonos cliente</label>
+                    </div>
+                    @Html.HiddenFor(model => model.Ctrl_TelefonoCliente.Id)
+                    @Html.HiddenFor(model => model.Ctrl_TelefonoCliente.IdCliente)
+                    <div class="col-md-6 col-sm-6">
+                        <label for="Telefono">Telefono</label>
+                        @Html.TextBoxFor(model => model.Ctrl_TelefonoCliente.Telefono, new { @class = "form-control", @id = "Telefono" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-xl-12 col-sm-12 ">
+                                    <table id="tablePhone" width="100%" class="table table-striped table-bordered table-hover compact">
+                                        <thead>
+                                            <tr>
+                                                <td>Telefono</td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" style="text-align:right">
+                <div style="margin-right:20px">
+                    <button class="btn btn-success" id="btnSaveTelefono" type="submit">Guardar telefono</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<form id="formDetalleContacto">
+    @Html.HiddenFor(model => Model.Id)
+    <div class="card card-default" style="border-color: #aaaaaa; border-width: 1px; border-style: solid; margin:1%">
+        <div class="card-header d-flex align-items-center">
+            <div class="form-group">
+                <div class="card-body">
+                    <div class="col-xl-8 col-sm-8 space">
+                        <label class="text-bold col-form-label">Contactos cliente</label>
+                    </div>
+                    @Html.HiddenFor(model => model.Ctrl_Contacto.Id)
+                    @Html.HiddenFor(model => model.Ctrl_Contacto.IdCliente)
+                    <div class="col-md-6 col-sm-6">
+                        <label for="NombreContac">Nombre</label>
+                        @Html.TextBoxFor(model => model.Ctrl_Contacto.Nombre, new { @class = "form-control", @id = "NombreContac" })
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <label for="PuestoContac">Puesto</label>
+                        @Html.TextBoxFor(model => model.Ctrl_Contacto.Puesto, new { @class = "form-control", @id = "PuestoContac" })
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <label for="EmailContac">Email</label>
+                        @Html.TextBoxFor(model => model.Ctrl_Contacto.Email, new { @class = "form-control", @id = "EmailContac" })
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <label for="TelefonoContac">Telefono</label>
+                        @Html.TextBoxFor(model => model.Ctrl_Contacto.Telefono, new { @class = "form-control", @id = "TelefonoContac" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-xl-12 col-sm-12 ">
+                                    <table id="tableContac" width="100%" class="table table-striped table-bordered table-hover compact">
+                                        <thead>
+                                            <tr>
+                                                <td>Nombre</td>
+                                                <td>Puesto</td>
+                                                <td>Email</td>
+                                                <td>Telefono</td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" style="text-align:right">
+                <div style="margin-right:20px">
+                    <button class="btn btn-success" id="btnSaveContacto" type="submit">Guardar Contacto</button>
+                </div>
+            </div>
+            <div class="form-group" style="text-align:right">
+                <div style="margin-right:20px">
+                    <button class="btn btn-secondary" id="btnReturn" type="button">Regresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

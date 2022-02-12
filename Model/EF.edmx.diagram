@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="30536104a9eb431bab9134deba7496cc" Name="Diagram1">
+        <EntityTypeShape EntityType="MinsaitBDModel.Cat_Mercado" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MinsaitBDModel.Ctrl_Cliente" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MinsaitBDModel.Ctrl_Contacto" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MinsaitBDModel.Ctrl_Direccioncliente" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MinsaitBDModel.Ctrl_TelefonoCliente" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="MinsaitBDModel.FK__Ctrl_Clie__IdMer__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="MinsaitBDModel.FK__Ctrl_Cont__IdCli__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="MinsaitBDModel.FK__Ctrl_Dire__IdCli__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="MinsaitBDModel.FK__Ctrl_Tele__IdCli__182C9B23" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

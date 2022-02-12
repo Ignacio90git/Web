@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MinsaitBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cat_Mercado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Clave" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ctrl_Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Rfc" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Pais" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdMercado" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ctrl_Contacto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCliente" Type="bigint" />
+    <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Puesto" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ctrl_Direccioncliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCliente" Type="bigint" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CodigoPostal" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Contacto" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ctrl_TelefonoCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCliente" Type="bigint" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Ctrl_Clie__IdMer__1273C1CD">
+    <End Role="Cat_Mercado" Type="Self.Cat_Mercado" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ctrl_Cliente" Type="Self.Ctrl_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Mercado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ctrl_Cliente">
+        <PropertyRef Name="IdMercado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ctrl_Cont__IdCli__1DE57479">
+    <End Role="Ctrl_Cliente" Type="Self.Ctrl_Cliente" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ctrl_Contacto" Type="Self.Ctrl_Contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ctrl_Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ctrl_Contacto">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ctrl_Dire__IdCli__15502E78">
+    <End Role="Ctrl_Cliente" Type="Self.Ctrl_Cliente" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ctrl_Direccioncliente" Type="Self.Ctrl_Direccioncliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ctrl_Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ctrl_Direccioncliente">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ctrl_Tele__IdCli__182C9B23">
+    <End Role="Ctrl_Cliente" Type="Self.Ctrl_Cliente" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ctrl_TelefonoCliente" Type="Self.Ctrl_TelefonoCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ctrl_Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ctrl_TelefonoCliente">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MinsaitBDModelStoreContainer">
+    <EntitySet Name="Cat_Mercado" EntityType="Self.Cat_Mercado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ctrl_Cliente" EntityType="Self.Ctrl_Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ctrl_Contacto" EntityType="Self.Ctrl_Contacto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ctrl_Direccioncliente" EntityType="Self.Ctrl_Direccioncliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ctrl_TelefonoCliente" EntityType="Self.Ctrl_TelefonoCliente" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Ctrl_Clie__IdMer__1273C1CD" Association="Self.FK__Ctrl_Clie__IdMer__1273C1CD">
+      <End Role="Cat_Mercado" EntitySet="Cat_Mercado" />
+      <End Role="Ctrl_Cliente" EntitySet="Ctrl_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ctrl_Cont__IdCli__1DE57479" Association="Self.FK__Ctrl_Cont__IdCli__1DE57479">
+      <End Role="Ctrl_Cliente" EntitySet="Ctrl_Cliente" />
+      <End Role="Ctrl_Contacto" EntitySet="Ctrl_Contacto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ctrl_Dire__IdCli__15502E78" Association="Self.FK__Ctrl_Dire__IdCli__15502E78">
+      <End Role="Ctrl_Cliente" EntitySet="Ctrl_Cliente" />
+      <End Role="Ctrl_Direccioncliente" EntitySet="Ctrl_Direccioncliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ctrl_Tele__IdCli__182C9B23" Association="Self.FK__Ctrl_Tele__IdCli__182C9B23">
+      <End Role="Ctrl_Cliente" EntitySet="Ctrl_Cliente" />
+      <End Role="Ctrl_TelefonoCliente" EntitySet="Ctrl_TelefonoCliente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

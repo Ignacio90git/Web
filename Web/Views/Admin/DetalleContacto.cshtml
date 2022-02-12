@@ -1,0 +1,60 @@
+﻿@model ModelDto.Ctrl_ContactoDto
+@{
+    ViewBag.Title = "Detalle Contacto";
+}
+
+<script src="~/Scripts/Admin/DetalleContacto.js?v1.3"></script>
+<script type="text/javascript">
+    var CrearContacto = "@Url.Action("CrearContacto", "Admin")";
+
+    var modelJson = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+</script>
+
+
+<h2>Detalle Contacto</h2>
+
+<div class="content-heading">
+    <div>
+        Usa el siguiente formulario para registrar/editar los <b>Contactos</b>.
+    </div>
+</div>
+
+<form id="formDetalleContacto">
+    @Html.HiddenFor(model => Model.Id)
+    <div class="card card-default" style="border-color: #aaaaaa; border-width: 1px; border-style: solid; margin: 1%; height: 200px;">
+        <div class="card-header d-flex align-items-center">
+            <div class="form-group">
+                <div class="card-body">
+                    <div class="col-md-4 col-sm-4 form-group">
+                        <label for="Nombre" class="control-label font-weight-bold">Nombre Contacto</label>
+                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control ", @id = "Nombre", @maxlength = 60 })
+                    </div>
+                    <div class="col-md-4 col-sm-4 form-group">
+                        <label for="Pais" class="control-label font-weight-bold">Pais Contacto</label>
+                        @Html.TextBoxFor(model => model.Puesto, new { @class = "form-control ", @id = "Puesto", @maxlength = 60 })
+                    </div>
+                    <div class="col-md-4 col-sm-4 form-group">
+                        <label for="Nombre" class="control-label font-weight-bold">Email Contacto</label>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control ", @id = "Email", @maxlength = 60 })
+                    </div>
+                    <div class="col-md-4 col-sm-4 form-group">
+                        <label for="Pais" class="control-label font-weight-bold">Telefono Contacto</label>
+                        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control ", @id = "Telefono", @maxlength = 60 })
+                    </div>
+                    <div class="form-group col-xl-4 col-sm-4">
+                        <label for="Mercado" class="control-label font-weight-bold">Cliente*</label>
+                        @Html.DropDownListFor(model => model.IdCliente, new SelectList(Model.Ctrl_ClienteList, "Id", "Nombre"), new { @class = "chosen-select form-control", @id = "IdCliente", @lang = "es" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row" style="text-align:right">
+                <div style="margin-right:20px">
+                    <button class="btn btn-secondary" id="btnReturn" type="button">Regresar</button>
+                    <button class="btn btn-success" id="btnSaveContacto" type="submit">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+

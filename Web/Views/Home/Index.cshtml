@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Mi pagina</h1>
+    <p class="lead">
+        Se espera la presentación del proyecto en algún repositorio GIT a las 24 hrs de cuando se envía el examen. Esperando un correo de respuesta con la URL del repositorio para que el revisor verifique el proyecto
+    </p>
+
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+        <li>@Html.ActionLink("Cliente", "Cliente", "Admin")</li>
+        <li>@Html.ActionLink("Contacto", "Contacto", "Admin")</li>
+    </ul>
+</div>

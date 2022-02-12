@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E2212FBA-0237-4DB7-BECF-079033FB666D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.2.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Admin\Cliente.js" />
+    <Content Include="Scripts\Admin\DetalleCliente.js" />
+    <Content Include="Scripts\Admin\Contacto.js" />
+    <Content Include="Scripts\Admin\DetalleContacto.js" />
+    <Content Include="Vendor\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />
+    <Content Include="Vendor\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.js" />
+    <Content Include="Vendor\bootstrap-datepicker\dist\css\bootstrap-datepicker.css" />
+    <Content Include="Vendor\bootstrap-datepicker\dist\js\bootstrap-datepicker.js" />
+    <Content Include="Vendor\bootstrap-datepicker\dist\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Vendor\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Vendor\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Vendor\datatables.net-bs4\css\dataTables.bootstrap4.css" />
+    <Content Include="Vendor\datatables.net-bs4\js\dataTables.bootstrap4.js" />
+    <Content Include="Vendor\datatables.net-buttons-bs\css\buttons.bootstrap.css" />
+    <Content Include="Vendor\datatables.net-buttons-bs\js\buttons.bootstrap.js" />
+    <Content Include="Vendor\datatables.net-buttons\js\buttons.colVis.js" />
+    <Content Include="Vendor\datatables.net-buttons\js\buttons.flash.js" />
+    <Content Include="Vendor\datatables.net-buttons\js\buttons.html5.js" />
+    <Content Include="Vendor\datatables.net-buttons\js\buttons.print.js" />
+    <Content Include="Vendor\datatables.net-buttons\js\dataTables.buttons.js" />
+    <Content Include="Vendor\datatables.net-keytable-bs\css\keyTable.bootstrap.css" />
+    <Content Include="Vendor\datatables.net-keytable\js\dataTables.keyTable.js" />
+    <Content Include="Vendor\datatables.net-plugins\api\sum%28%29.js" />
+    <Content Include="Vendor\datatables.net-responsive-bs\css\responsive.bootstrap.css" />
+    <Content Include="Vendor\datatables.net-responsive-bs\js\responsive.bootstrap.js" />
+    <Content Include="Vendor\datatables.net-responsive\js\dataTables.responsive.js" />
+    <Content Include="Vendor\datatables.net-select-bs\css\select.bootstrap.min.css" />
+    <Content Include="Vendor\datatables.net-select-bs\js\select.bootstrap.min.js" />
+    <Content Include="Vendor\datatables.net-select\js\dataTables.select.min.js" />
+    <Content Include="Vendor\datatables.net\js\datetime.js" />
+    <Content Include="Vendor\datatables.net\js\jquery.dataTables.js" />
+    <Content Include="Vendor\eonasdan-custom-bootstrap-datetimepicker-with-bootstrap-4\build\css\bootstrap-datetimepicker-standalone.css" />
+    <Content Include="Vendor\eonasdan-custom-bootstrap-datetimepicker-with-bootstrap-4\build\css\bootstrap-datetimepicker.css" />
+    <Content Include="Vendor\eonasdan-custom-bootstrap-datetimepicker-with-bootstrap-4\build\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Vendor\eonasdan-custom-bootstrap-datetimepicker-with-bootstrap-4\build\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\AUTHORS.txt" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\external\jquery\jquery.js" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\images\ui-icons_444444_256x240.png" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\images\ui-icons_555555_256x240.png" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\images\ui-icons_777620_256x240.png" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\images\ui-icons_777777_256x240.png" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\index.html" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\jquery-ui.css" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\jquery-ui.js" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\jquery-ui.min.css" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\jquery-ui.min.js" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\jquery-ui.structure.css" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\jquery-ui.structure.min.css" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\jquery-ui.theme.css" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\jquery-ui.theme.min.css" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\LICENSE.txt" />
+    <Content Include="Vendor\jquery\dist\jquery.js" />
+    <Content Include="Vendor\moment\min\moment-with-locales.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\al.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ar.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\bg.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ca.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\cs.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\cs.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\da.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\de.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\de.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\el.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\el.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\en.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\en.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\es.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\et.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\eu.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\fa.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\fi.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\fi.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\fr.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\fr.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\he.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\he.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\hr.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\hr.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\hu.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\hu.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\id.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\id.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\it.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\it.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ja.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ja.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ko.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\lt.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\lt.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\lv.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\lv.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ms.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ms.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\nl.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\nl.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\no.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\pl.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\pt-br.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\pt-pt.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ro.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ro.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ru.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ru.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\sk.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\sk.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\sl.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\sl.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\sq.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\sr.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\sr.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\sv.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\sv.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\th.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\tk.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\tr.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ua.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ua.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\uk.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\uk.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\ur.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\zh_cn.extra.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\zh_cn.js" />
+    <Content Include="Vendor\parsleyjs\dist\i18n\zh_tw.js" />
+    <Content Include="Vendor\parsleyjs\dist\parsley.js" />
+    <Content Include="Vendor\parsleyjs\dist\parsley.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Views\Admin\Cliente.cshtml" />
+    <Content Include="Views\Admin\DetalleCliente.cshtml" />
+    <Content Include="Vendor\eonasdan-custom-bootstrap-datetimepicker-with-bootstrap-4\build\css\bootstrap-datetimepicker.css.map" />
+    <Content Include="Vendor\eonasdan-custom-bootstrap-datetimepicker-with-bootstrap-4\build\css\bootstrap-datetimepicker.min.css.map" />
+    <Content Include="Vendor\jquery-ui-1.12.1.custom\package.json" />
+    <Content Include="Vendor\parsleyjs\dist\parsley.js.map" />
+    <Content Include="Vendor\parsleyjs\dist\parsley.min.js.map" />
+    <Content Include="Views\Admin\Contacto.cshtml" />
+    <Content Include="Views\Admin\DetalleContacto.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApiComm\ApiComm.csproj">
+      <Project>{3E175AB5-3CB8-4F09-AF7D-1A3C5A0C4307}</Project>
+      <Name>ApiComm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelDto\ModelDto.csproj">
+      <Project>{69500b61-ef4f-41ff-9e67-b1bf2182679d}</Project>
+      <Name>ModelDto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{ED30742D-210F-46B2-88AA-0F8F9C755B1A}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58813</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58813/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

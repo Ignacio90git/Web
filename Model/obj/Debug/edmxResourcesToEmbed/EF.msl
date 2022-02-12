@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MinsaitBDModelStoreContainer" CdmEntityContainer="MinsaitBDEntities">
+    <EntitySetMapping Name="Cat_Mercado">
+      <EntityTypeMapping TypeName="MinsaitBDModel.Cat_Mercado">
+        <MappingFragment StoreEntitySet="Cat_Mercado">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ctrl_Cliente">
+      <EntityTypeMapping TypeName="MinsaitBDModel.Ctrl_Cliente">
+        <MappingFragment StoreEntitySet="Ctrl_Cliente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Rfc" ColumnName="Rfc" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IdMercado" ColumnName="IdMercado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ctrl_Contacto">
+      <EntityTypeMapping TypeName="MinsaitBDModel.Ctrl_Contacto">
+        <MappingFragment StoreEntitySet="Ctrl_Contacto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ctrl_Direccioncliente">
+      <EntityTypeMapping TypeName="MinsaitBDModel.Ctrl_Direccioncliente">
+        <MappingFragment StoreEntitySet="Ctrl_Direccioncliente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ctrl_TelefonoCliente">
+      <EntityTypeMapping TypeName="MinsaitBDModel.Ctrl_TelefonoCliente">
+        <MappingFragment StoreEntitySet="Ctrl_TelefonoCliente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

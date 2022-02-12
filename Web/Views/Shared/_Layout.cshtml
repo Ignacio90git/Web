@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    @*<link href="@Styles.Url("~/Vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker.css")" rel="stylesheet" />*@
+
+    <script src="@Scripts.Url("~/Vendor/moment/min/moment-with-locales.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/jquery/dist/jquery.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/bootstrap/dist/js/bootstrap.js")"></script>
+    @*<script src="@Scripts.Url("~/Vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.js")"></script>*@
+    <script src="@Scripts.Url("~/Scripts/Global.js")"></script>
+
+    <link href="@Styles.Url("~/Vendor/datatables.net-bs4/css/dataTables.bootstrap4.css")" rel="stylesheet" />
+    <link href="@Styles.Url("~/Vendor/datatables.net-keytable-bs/css/keyTable.bootstrap.css")" rel="stylesheet" />
+    <link href="@Styles.Url("~/Vendor/datatables.net-responsive-bs/css/responsive.bootstrap.css")" rel="stylesheet" />
+    <link href="@Styles.Url("~/Vendor/datatables.net-select-bs/css/select.bootstrap.min.css")" rel="stylesheet" />
+
+
+    <script src="@Scripts.Url("~/Vendor/datatables.net/js/jquery.dataTables.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net/js/datetime.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-bs4/js/dataTables.bootstrap4.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-buttons/js/dataTables.buttons.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-buttons-bs/js/buttons.bootstrap.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-buttons/js/buttons.colVis.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-buttons/js/buttons.flash.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-buttons/js/buttons.html5.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-buttons/js/buttons.print.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-keytable/js/dataTables.keyTable.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-responsive/js/dataTables.responsive.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-responsive-bs/js/responsive.bootstrap.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-plugins/api/sum().js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-select/js/dataTables.select.min.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/datatables.net-select-bs/js/select.bootstrap.min.js")"></script>
+
+
+    @*<script src="@Scripts.Url("~/Vendor/eonasdan-custom-bootstrap-datetimepicker-with-bootstrap-4/build/js/bootstrap-datetimepicker.min.js")"></script>
+        <script src="@Scripts.Url("~/Vendor/bootstrap-datepicker/dist/locales/bootstrap-datepicker.es.min.js")"></script>
+        <script src="@Scripts.Url("~/Scripts/bootstrap-datetimepicker.es-us.js")"></script>*@
+
+
+    <script src="@Scripts.Url("~/Vendor/jquery-ui-1.12.1.custom/jquery-ui.min.js")"></script>
+    <link href="@Styles.Url("~/Vendor/jquery-ui-1.12.1.custom/jquery-ui.min.css")" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Portal clientes", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
